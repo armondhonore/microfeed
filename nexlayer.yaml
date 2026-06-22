@@ -1,0 +1,15 @@
+application:
+  name: microfeed
+  pods:
+  - name: app
+    image: microfeed/microfeed:latest
+    path: /
+    servicePorts:
+    - 3000
+    vars:
+      NODE_ENV: production
+      SITE_URL: "https://relaxed-weasel-microfeed.cloud.nexlayer.ai"
+    volumes:
+    - name: microfeed-data
+      mountPath: /app/data
+      size: 5Gi
