@@ -19,6 +19,10 @@ FROM node:22-bookworm-slim AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
 
+# curl is used by the entrypoint to wait for the server and is small.
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
 # Bring the whole built app (functions/, edge-src/, public/ with compiled assets,
 # node_modules incl. wrangler, ops/db/init.sql, wrangler.toml).
 COPY --from=builder /app /app
