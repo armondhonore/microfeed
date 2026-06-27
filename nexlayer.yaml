@@ -2,7 +2,7 @@ application:
   name: microfeed
   pods:
   - name: app
-    image: "# filled by pipeline"
+    image: "registry.nexlayer.io/user_01kece1xyh817dwff7wnarhkxd/microfeed:19f07b5b567"
     path: /
     servicePorts:
     - 3000
