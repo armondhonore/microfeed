@@ -2,7 +2,7 @@ application:
   name: microfeed
   pods:
   - name: app
-    image: microfeed/microfeed:latest
+    image: "# filled by pipeline"
     path: /
     servicePorts:
     - 3000
