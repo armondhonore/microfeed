@@ -1,5 +1,14 @@
 compatibility_date = "2025-03-14"
 
+# Top-level binding so `wrangler d1 execute FEED_DB --local` (used by the self-host
+# entrypoint to seed the schema) resolves the database without an -e environment.
+# `wrangler pages dev --d1 FEED_DB` and this entry both key the local SQLite by the
+# binding name under the shared --persist-to dir, so the seed lands where Miniflare reads.
+[[d1_databases]]
+binding = "FEED_DB"
+database_name = "FEED_DB"
+database_id = "id_placeholder"
+
 [[ env.development.d1_databases ]]
 binding = "FEED_DB"
 database_name = "FEED_DB"
